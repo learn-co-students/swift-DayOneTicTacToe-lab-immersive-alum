@@ -26,6 +26,7 @@ class ViewController: UIViewController, BoardDelegate {
         return [boardZero, boardOne, boardTwo, boardThree, boardFour, boardFive, boardSix, boardSeven, boardEight]
     }
     
+    private var turn = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +44,15 @@ class ViewController: UIViewController, BoardDelegate {
     
     func playerTurn(board: Board, position: Int) -> Player {
         
+        turn += 1
+        let mod: Double = Double(turn%2)
+        if (mod == 0) {
+            return .x
+        }
         
-        
-        return .x
+        else {
+            return .o
+        }
         
         
         
